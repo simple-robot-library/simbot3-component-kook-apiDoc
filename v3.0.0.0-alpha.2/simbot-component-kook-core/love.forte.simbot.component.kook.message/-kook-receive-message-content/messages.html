@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>messages</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>simple-robot-component-kook</span>            </a>    </div>
+    <div>3.0.0.0-alpha.2
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="simbot-component-kook-core::love.forte.simbot.component.kook.message/KookReceiveMessageContent/messages/#/PointingToDeclaration//-1619185879">
+  <div class="breadcrumbs"><a href="../../index.html">simbot-component-kook-core</a><span class="delimiter">/</span><a href="../index.html">love.forte.simbot.component.kook.message</a><span class="delimiter">/</span><a href="index.html">KookReceiveMessageContent</a><span class="delimiter">/</span><span class="current">messages</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>messages</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":simbot-component-kook-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="messages.html">messages</a><span class="token operator">: </span><span data-unresolved-link="love.forte.simbot.message/Messages///PointingToDeclaration/">Messages</span></div><p class="paragraph">Kook 消息事件中所收到的消息列表。</p><p class="paragraph">当 <a href="../../../simbot-component-kook-core/love.forte.simbot.component.kook.message/-kook-receive-message-content/source.html">source</a> 中的 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/extra.html">extra</a> 属于 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event.message/-k-markdown-event-extra/index.html">KMarkdownEventExtra</a> 时， messages 会至少包含两个部分：</p><ol><li><p class="paragraph">会将这个 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event.message/-k-markdown-event-extra/index.html">KMarkdownEventExtra</a> 直接作为 <a href="../-kook-k-markdown-message/index.html">KookKMarkdownMessage</a> 置于消息链首。</p></li><li><p class="paragraph">会将 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/content.html">Event.content</a> 作为 <span data-unresolved-link="love.forte.simbot.message/Text///PointingToDeclaration/">Text</span> 进行追加，并且会根据当前消息进行<strong>处理</strong>。</p></li><li><p class="paragraph">其他消息元素解析。</p></li></ol><p class="paragraph">这会在后续详细说明。</p><h2 class=""> <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/content.html">Event.content</a> 的处理</h2><p class="paragraph">如上所述，<a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/content.html">Event.content</a> 被追加的时候会进行 <strong>处理</strong>。 所谓处理，就是指根据 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/-extra/-text/index.html">Event.Extra.Text</a> 中的 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/-extra/-text/mention.html">mention</a>、 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/-extra/-text/mention-roles.html">mentionRoles</a>、<a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/-extra/-text/is-mention-all.html">isMentionAll</a>、 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/-extra/-text/is-mention-here.html">isMentionHere</a> 的信息，根据各信息出现数量依次移除 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/content.html">Event.content</a> 中出现的特殊字符串。</p><p class="paragraph">例如，一个消息为：</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">@forliy hello</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">则 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/content.html">Event.content</a> 的实际内容为：</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">(met)xxxx(met) hello</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">而由于 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/-extra/-text/mention.html">Event.Extra.Text.mention</a> 出现过一次上述的 <code class="lang-kotlin">xxxx</code> 的信息，因此依次移除掉一个 <code class="lang-kotlin">(met)xxxx(met)</code>。</p><p class="paragraph">如果你希望能够得到最原始的 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/content.html">Event.content</a>，那么请通过事件对象获取而不是 <a href="index.html">KookReceiveMessageContent</a>。</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val event: KookMessageEvent = ... // 一个Kook的消息事件<br>val rawContent = event.sourceEvent.content<br>// ...</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h2 class=""> 元素冗余</h2><p class="paragraph">还是如上所述，你会发现 <span data-unresolved-link="love.forte.simbot.message//messages/#/PointingToDeclaration/">messages</span> 会提供一些额外的冗余消息来保证消息链中的信息绝对完整， 比如如果 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/extra.html">extra</a> 属于 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event.message/-k-markdown-event-extra/index.html">KMarkdownEventExtra</a> 类型，则会在消息链首追加一个 <a href="../-kook-k-markdown-message/index.html">KookKMarkdownMessage</a>。而这时，消息链首已经存在了一个完整的原始消息元素，而其后仍然会继续追加其他的元素拆分： 这就会导致消息链中会出现信息量为原本两倍的内容。</p><p class="paragraph">当你了解这件事时，你需要额外的注意：如果你希望复述此消息，你应该使用 <a href="index.html">KookReceiveMessageContent</a> 而不是 <span data-unresolved-link="love.forte.simbot.message//messages/#/PointingToDeclaration/">messages</span>； 同样的，如果你需要处理消息，那么请注意防止出现重复的处理。</p><p class="paragraph">有关 <a href="../../../simbot-component-kook-api/love.forte.simbot.kook.event/-event/-extra/index.html">Event.Extra</a> 类型与对应转化规则的描述请参考 <a href="../to-messages.html">toMessages</a> 文档说明。</p></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
